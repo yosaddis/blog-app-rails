@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   after_save :update_counters
 
   def last_comments
-    Comments.where(post_id: id).order(created_at: :desc).limit(5)
+    Comment.where(post_id: id).order(created_at: :desc).limit(5)
   end
 
   private
