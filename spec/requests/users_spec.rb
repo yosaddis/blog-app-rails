@@ -41,8 +41,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders the correct content' do
-        expect(response.body).to include('User details')
-      end
-
+      expect(response.body).to include('User details')
+    end
   end
 end
