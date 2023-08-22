@@ -33,11 +33,16 @@ RSpec.describe 'Users', type: :request do
     before(:each) do
       @user = User.create(name: 'John Doe', photo: 'https://i.pravatar.cc/300', bio: 'Alien biologist',
                           posts_counter: 0)
-      get users_path(@user)
+      get user_show_path(@user)
     end
 
     it 'returns http success' do
       expect(response).to have_http_status(:success)
     end
+
+    it 'renders the correct content' do
+        expect(response.body).to include('User details')
+      end
+
   end
 end
