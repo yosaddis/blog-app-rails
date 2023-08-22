@@ -43,5 +43,11 @@ RSpec.describe 'Users', type: :request do
     it 'renders the correct content' do
       expect(response.body).to include('User details')
     end
+
+    it 'renders a successful template' do
+        expect(response).to render_template(:show)
+      end
+  
+
   end
 end
