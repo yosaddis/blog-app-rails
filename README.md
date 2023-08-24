@@ -95,12 +95,26 @@ Install the dependencies using bundler:
 ```bash
 bundle install
 ```
+Do this to for database migrations :
+```bash
+rails db:drop
+```
+```bash
+rails db:create
+```
+```bash
+rails db:migrate
+```
+If you need some test data run
+```bash
+rails db:seed
+```
 
 ### Usage
 
 To start you can open your terminal and in the folder write
 ```bash
-ruby main.rb
+rails server
 ```
 
 
