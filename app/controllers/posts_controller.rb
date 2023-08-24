@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     begin
       @post = Post.where(author_id: @user.id).find(params[:id])
-    rescue => exception
+    rescue StandardError
       @post = nil
     end
   end
