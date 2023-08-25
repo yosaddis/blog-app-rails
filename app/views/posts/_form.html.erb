@@ -1,0 +1,17 @@
+
+<div class= "row d-flex justify-content-start" >
+<h1>Create a new post</h1>
+<%= form_with do |form| %>
+    <%= form.label :title, 'Title'  , class: 'form-label'%>
+    <%= form.text_field :title , class: 'form-control' %>
+    <%= form.label :text, 'Content' , class: 'form-lable'%>
+    <%= form.text_area :text , class: 'form-control', rows: '5' %>
+    <br/>
+    <%= form.submit class: 'btn btn-primary' %>
+<% end %>
+<% @post.errors.full_messages_for(:title).each do |message| %>
+    <p><%= message %></p>
+<% end %>
+<br/>
+    <%= link_to 'Back', root_path, class: 'nav-link' %>
+</div>
