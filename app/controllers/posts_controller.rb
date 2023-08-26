@@ -16,12 +16,10 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @user = current_user
   end
 
   def create
     @post = Post.new(author_id: current_user.id, title: params[:title], text: params[:text])
-    @user = current_user
 
     if @post.save
       flash[:notice] = 'Post has been created!'
