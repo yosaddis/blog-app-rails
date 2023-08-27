@@ -6,7 +6,11 @@
     <p class= ''>Number of Posts <%= @user.posts_counter %></p>
   </div>
 </div>
-
+<br/>
+<div class='container'>
+  <%= link_to 'Create new post', new_post_path , class: 'btn btn-success'%>
+</div>
+<br>
 <div  class='container border rounded'>
   <h2>List of Posts</h2>
   <% @posts.each do |post| %>

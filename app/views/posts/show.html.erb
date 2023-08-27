@@ -24,3 +24,10 @@
 <% else %>
   <h1>Post not found</h1>
 <% end %>
+
+
+<%= form_with url: '/likes/new' do |form| %>
+  <%= form.hidden_field :post_id, value: @post.id %>
+    <%= form.submit 'Like this post', class: 'btn btn-secondary' %>
+   <%= link_to 'Create new comment', "/comment/new/#{@post.id}" , class: 'btn btn-primary' %>
+<% end %>

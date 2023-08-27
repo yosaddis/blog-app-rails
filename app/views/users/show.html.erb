@@ -30,4 +30,8 @@
       </div>
     <% else %>
       <p>This user has no posts yet</p>
+      <div class='container'>
+  <%= link_to 'Create new post', new_post_path , class: 'btn btn-success'%>
+</div>
+
     <% end %>
