@@ -2,19 +2,19 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   before(:each) do
-    get users_path
+    get users_index_path
   end
 
   describe 'GET /users' do
     it 'should return a list of users' do
-      get '/users'
+      get users_index_path
       expect(response).to have_http_status(200)
     end
   end
 
   describe 'GET /users/:id' do
     it 'should return a user' do
-      get '/users/1'
+      get user_show_path(1)
       expect(response).to have_http_status(200)
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('User details')
+      expect(response.body).to include('Bio')
     end
 
     it 'renders a successful template' do
