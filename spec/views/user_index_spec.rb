@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'users/index', type: :feature do
   before(:each) do
     @user = User.create(name: 'Yoseph Addisu', photo: 'https://i.pravatar.cc/300', bio: 'Software Eng',
