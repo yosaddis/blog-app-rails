@@ -38,7 +38,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('by '+@user.name)
+      expect(response.body).to include('by ' + @user.name)
     end
   end
 end

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 
 RSpec.describe 'users/index', type: :feature do
-
-    before(:each) do
+  before(:each) do
     @user = User.create(name: 'Yoseph Addisu', photo: 'https://i.pravatar.cc/300',
                         bio: 'Software Eng.', posts_counter: 0)
     5.times do |i|
@@ -55,9 +54,8 @@ RSpec.describe 'users/index', type: :feature do
   end
 
   it 'Redirects to the post show page when clicking on a post title' do
-    #click_on 'See all posts'
+    # click_on 'See all posts'
     click_link("See all posts")
     expect(page).to have_current_path(user_posts_path(@user.id))
   end
-
 end
