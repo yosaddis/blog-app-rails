@@ -24,7 +24,7 @@ RSpec.describe 'users/index', type: :feature do
   end
 
   it 'redirects to the user\'s show page when you click on a user' do
-    click_link ('Yoseph Addisu')
+    click_link('Yoseph Addisu')
     expect(page).to have_current_path(user_show_path(@user.id))
   end
 end

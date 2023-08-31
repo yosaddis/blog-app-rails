@@ -43,7 +43,7 @@ RSpec.describe 'posts/index', type: :feature do
 
   it 'can see a section for pagination if there are more posts than fit on the view' do
     click_link('See all posts')
-    expect(page.body).to have_selector("#pagination")
+    expect(page.body).to have_selector('#pagination')
   end
 
   it 'redirect to the post\'s show page when you click on a post.' do
