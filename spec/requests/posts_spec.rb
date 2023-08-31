@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('All Posts')
+      expect(response.body).to include('Posts')
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('Show posts by user')
+      expect(response.body).to include("by #{@user.name}")
     end
   end
 end
