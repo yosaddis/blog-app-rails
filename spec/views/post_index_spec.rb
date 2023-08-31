@@ -48,7 +48,6 @@ RSpec.describe 'posts/index', type: :feature do
 
   it 'redirect to the post\'s show page when you click on a post.' do
     click_link('First Post')
-    expect(page).to have_current_path(user_post_path(@user.id, @first_post.id) )
+    expect(page).to have_current_path(user_post_path(@user.id, @first_post.id))
   end
-
 end
