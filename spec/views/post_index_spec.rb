@@ -50,4 +50,10 @@ RSpec.describe 'posts/index', type: :feature do
     click_link('First Post')
     expect(page).to have_current_path(user_post_path(@user.id, @first_post.id))
   end
+
+  it 'display first comments on a post' do
+    click_link('First Post')
+    expect(page).to have_content('This is comment #1')
+    expect(page).to have_content('This is comment #2')
+  end
 end
