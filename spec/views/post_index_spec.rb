@@ -10,7 +10,7 @@ RSpec.describe 'posts/index', type: :feature do
     5.times do |i|
       Comment.create(text: "This is comment ##{i}", author_id: @user.id, post_id: @first_post.id)
     end
-    visit user_show_path(@first_post.author_id, @fisrt_post)
+    visit user_show_path(@first_post.author_id, @first_post)
   end
 
   it 'displays post text' do
@@ -40,4 +40,15 @@ RSpec.describe 'posts/index', type: :feature do
   it 'displays user profile picture' do
     expect(page).to have_css("img[src*='https://i.pravatar.cc/300']")
   end
+
+  it 'can see a section for pagination if there are more posts than fit on the view' do
+    click_link('See all posts')
+    expect(page.body).to have_selector("#pagination")
+  end
+
+  it 'redirect to the post\'s show page when you click on a post.' do
+    click_link('First Post')
+    expect(page).to have_current_path(user_post_path(@user.id, @first_post.id) )
+  end
+
 end
