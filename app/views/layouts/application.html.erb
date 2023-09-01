@@ -14,7 +14,11 @@
 
     </head>
   <body>
-  
+  <div class="container">
+     <li class="nav-item">
+          <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, class:'nav-link' %>
+      </li>
+  </div>
   <div class="container">
   <br/>
      <%= yield %>
