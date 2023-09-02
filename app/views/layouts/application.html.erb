@@ -14,7 +14,13 @@
 
     </head>
   <body>
-  
+  <div class="container">
+     <p class="nav-item">
+          <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, class:'nav-link' if user_signed_in? %>
+      </p>
+  </div>
+  <div class="alert alert-light" role="alert"><%= notice %> </div>
+  <div class="alert alert-light" role="alert"><%= alert %> </div>
   <div class="container">
   <br/>
      <%= yield %>
