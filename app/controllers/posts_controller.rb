@@ -25,6 +25,19 @@ class PostsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @post = Post.find(params[:post_id])
+  #   @post.destroy
+  # end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.comments.each(&:destroy)
+    post.likes.each(&:destroy)
+    post.destroy
+    redirect_to user_posts_path(current_user.id)
+  end
+
   private
 
   def post_params
