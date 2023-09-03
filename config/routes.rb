@@ -22,4 +22,9 @@ Rails.application.routes.draw do
   delete 'comments/:id', to: 'comments#destroy'
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get '/api/users/:user_id/posts', to: 'api/posts#index'
+  get '/api/users/:user_id/posts/:post_id/comments', to: 'api/comments#index'
+  post '/api/users/:user_id/posts/:post_id/comments', to: 'api/comments#create' 
+
 end
