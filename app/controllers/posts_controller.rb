@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  before_action :create, only: [:new]
+
+  load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -25,9 +29,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    post.comments.each(&:destroy)
+    post.likes.each(&:destroy)
+    post.destroy
+    redirect_to user_posts_path(current_user.id)
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :text)
   end
 end

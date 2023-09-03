@@ -18,6 +18,9 @@
               <div class='d-flex justify-content-start'>
                 <strong><%= comment.author.name %>: </strong>
                 <p><%= comment.text %></p>
+                 <% if can? :delete, comment %>
+                  <%= button_to 'Delete Comment', "/comments/#{comment.id}", method: :delete %>
+                <% end %>
               </div>
           <% end %>
     </div>
