@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/api/users/:user_id/posts', to: 'api/posts#index'
-  get '/api/comments/:post_id', to: 'api/comments#index'
+  get '/api/users/:user_id/posts/:post_id/comments', to: 'api/comments#index'
   post '/api/users/:user_id/posts/:post_id/comments', to: 'api/comments#create' 
 
 end
